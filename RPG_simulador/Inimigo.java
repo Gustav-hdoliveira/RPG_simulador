@@ -52,6 +52,52 @@ public class Inimigo {
         }
         
     }
+    
+    public void informar_ataqueDan(int resultado_dado){
+        switch(resultado_dado){
+            case 1:
+                ataque_rapido(1);
+                break;
+            case 2:
+                ataque_medio(1);
+                break;
+            case 3:
+                ataque_pesado(1);
+                break;
+            case 4:
+                if(getCarga() >= 4){
+                    ataque_ULTIMATE(1);
+                } else {
+                    ataque_medio(1);
+                }
+                break;
+            default:
+                ataque_medio(1);
+        }
+    }
+    
+    public void informar_ataqueVel(int resultado_dado){
+        switch(resultado_dado){
+            case 1:
+                ataque_rapido(2);
+                break;
+            case 2:
+                ataque_medio(2);
+                break;
+            case 3:
+                ataque_pesado(2);
+                break;
+            case 4:
+                if(getCarga() >= 4){
+                    ataque_ULTIMATE(2);
+                } else {
+                    ataque_medio(2);
+                }
+                break;
+            default:
+                ataque_medio(2);
+        }
+    }
 
     public void sofrerDanoMonstro(double dano){
         double danoCalculado = getVida() - calcularDanoMonstro(dano);

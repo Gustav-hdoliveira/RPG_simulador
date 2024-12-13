@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package RPG_simulador;
+import java.util.Scanner;
 
 /**
  *
@@ -12,10 +13,10 @@ public class Area {
     String nome;
     String descricao;
     Boolean bau;
-    String[] inimigos;
+    Inimigo[] inimigos;
     Area Prox_area;
     
-    public Area(String nome_area, String descricao_area,  Boolean bau_na_area, String[] inimigos_area, Area Proxima_area){
+    public Area(String nome_area, String descricao_area,  Boolean bau_na_area, Inimigo[] inimigos_area, Area Proxima_area){
         nome = nome_area;
         descricao = descricao_area;
         bau = bau_na_area;
@@ -23,20 +24,43 @@ public class Area {
         Prox_area = Proxima_area;
     }
     
-    public void opcoes_area(){
+    public void opcoes_area(Scanner scanner, Dados dadosUtil, Bolsa bolsa){
         System.out.println(nome);
         System.out.println(descricao);
         System.out.println("Deseja fazer o que?");
         if(bau == true){
-        System.out.println("OP 1: Abrir bau, OP 2: Ir para proxima area");
+            System.out.println("OP 1: Ir para proxima area, OP 2: Checar bau proximo");
+        } else {
+            System.out.println("Indo para proxima area");
+            scanner.nextLine();
+            Prox_area.opcoes_area(scanner, dadosUtil, bolsa);
+        }
+    }
+
+    public void Checar_bau(Scanner scanner, Dados dadosUtil, Bolsa bolsa){
+        System.out.println("Você se aproxima do bau");
+        scanner.nextLine();
+        System.out.println("Deseja abrilo? S / N");
+        String resposta = scanner.nextLine();
+        if(resposta == "S" || resposta == "s"){
+            conteudo_aleatorio(scanner, dadosUtil, bolsa);
+        } else {
+            opcoes_area(scanner, dadosUtil, bolsa);
         }
     }
     
-    public void realizar_caminho(Area area){
-        Prox_area.opcoes_area();
-        
+    public void conteudo_aleatorio(Scanner scanner, Dados dadosUtil, Bolsa bolsa){
+        Item pedra_de_cura = new Item("pedra de cura", "pedra simples que solta uma fraca magia de cura ao ser quebrada");
+        Item dente_dourado = new Item("Dente dourado", "Um dente dourado no formato da presa de algum animal, para que será que serve?");
+        int resultado = dadosUtil.rolarDados(scanner, 1, 2);
+        if(resultado == 1){
+            System.out.println("Você achou o item: " + pedra_de_cura);
+            //Onde os itens deveria ser adicionados a bolsa
+        } else {
+            System.out.println("Você achou o item: " + dente_dourado);
+            //Onde os itens deveria ser adicionados a bolsa
+        }
     }
-    
     public String getNome(){
         return nome;
     }
@@ -45,15 +69,11 @@ public class Area {
         return descricao;
     }
     
-    public Boolean getAtalho(){
-        return atalho;
-    }
-    
     public Boolean getBau(){
         return bau;
     }
     
-    public String[] getInimigos(){
+    public Inimigo[] getInimigos(){
         return inimigos;
     }
 }
