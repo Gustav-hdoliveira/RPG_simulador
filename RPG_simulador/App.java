@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class App {
     
-    void menu_combate(Personagem persona, Inimigo inimigo){
+    void menu_combate(Personagem persona, Inimigo inimigo, Scanner scanner, Dados dadosUtil){
         int dado_resultado;
         double poder_inimigoATQ;
         double velocidade_inimigoATQ;
