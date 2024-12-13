@@ -9,5 +9,6 @@ public class App {
         Personagem character = new Personagem("Null", 0, 0, 0.1, 0.1,0,0.1,0,0,0,0,0,0,0.1,0,0, "null", "null");
         Persona_criacao PerCri = new Persona_criacao();
         PerCri.Persona_criacao_menu(character);
+        
     }
 }

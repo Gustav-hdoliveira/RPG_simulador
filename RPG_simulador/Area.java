@@ -11,24 +11,30 @@ package RPG_simulador;
 public class Area {
     String nome;
     String descricao;
-    Boolean atalho;
     Boolean bau;
     String[] inimigos;
+    Area Prox_area;
     
-    public Area(String nome_area, String descricao_area, Boolean atalho_presente,  Boolean bau_na_area, String[] inimigos_area){
+    public Area(String nome_area, String descricao_area,  Boolean bau_na_area, String[] inimigos_area, Area Proxima_area){
         nome = nome_area;
         descricao = descricao_area;
-        atalho = atalho_presente;
         bau = bau_na_area;
         inimigos = inimigos_area;
+        Prox_area = Proxima_area;
     }
-   
     
+    public void opcoes_area(){
+        System.out.println(nome);
+        System.out.println(descricao);
+        System.out.println("Deseja fazer o que?");
+        if(bau == true){
+        System.out.println("OP 1: Abrir bau, OP 2: Ir para proxima area");
+        }
+    }
     
-    public void realizar_atalho(Area area){
-       if(atalho == true){
-           
-       }
+    public void realizar_caminho(Area area){
+        Prox_area.opcoes_area();
+        
     }
     
     public String getNome(){
