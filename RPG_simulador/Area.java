@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package RPG_simulador;
+import java.util.Scanner;
 
 /**
  *
@@ -12,10 +13,10 @@ public class Area {
     String nome;
     String descricao;
     Boolean bau;
-    String[] inimigos;
+    Inimigo[] inimigos;
     Area Prox_area;
     
-    public Area(String nome_area, String descricao_area,  Boolean bau_na_area, String[] inimigos_area, Area Proxima_area){
+    public Area(String nome_area, String descricao_area,  Boolean bau_na_area, Inimigo[] inimigos_area, Area Proxima_area){
         nome = nome_area;
         descricao = descricao_area;
         bau = bau_na_area;
@@ -23,18 +24,17 @@ public class Area {
         Prox_area = Proxima_area;
     }
     
-    public void opcoes_area(){
+    public void opcoes_area(Scanner scanner){
         System.out.println(nome);
         System.out.println(descricao);
         System.out.println("Deseja fazer o que?");
         if(bau == true){
         System.out.println("OP 1: Abrir bau, OP 2: Ir para proxima area");
+        } else {
+            System.out.println("Indo para proxima area");
+            scanner.nextLine();
+            Prox_area.opcoes_area(scanner);
         }
-    }
-    
-    public void realizar_caminho(Area area){
-        Prox_area.opcoes_area();
-        
     }
     
     public String getNome(){
@@ -45,15 +45,11 @@ public class Area {
         return descricao;
     }
     
-    public Boolean getAtalho(){
-        return atalho;
-    }
-    
     public Boolean getBau(){
         return bau;
     }
     
-    public String[] getInimigos(){
+    public Inimigo[] getInimigos(){
         return inimigos;
     }
 }
