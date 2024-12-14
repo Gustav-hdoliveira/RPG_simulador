@@ -25,6 +25,7 @@ public class Persona_criacao {
         System.out.println("Explorador,  10|	  2|   2|     2|   2|    2|  4|   1|   1| Adaga, nenhuma");
         System.out.println("Depravado,  1 |	  1|   1|     1|   1|    1|    1|   1|   1| Nenhuma, Nenhuma");
 
+        System.out.println("Escreva qual classe deja começar como.");
         Scanner myClasseeInicial = new Scanner(System.in);  // Create a Scanner object
         String classe = myClasseeInicial.nextLine();  // Read user input
         Dados dadosCriacao = new Dados();
@@ -77,9 +78,16 @@ public class Persona_criacao {
             default:
                 System.out.println("selecionado incorretamente, tente novamente");
                      Persona_criacao_menu(meuPersonagem);
-
+                     
         }
-        
+        System.out.println("Se sabe o que você é, ainda lembraria de seu nome? ");
+        System.out.println("Escreva-o: ");
+        String meuNome = myClasseeInicial.nextLine();  // Read user input
+        meuPersonagem.nome = meuNome;
+        meuPersonagem.vidaMAX = meuPersonagem.PTvigor * 50;
+        meuPersonagem.vidaAtual = meuPersonagem.getVidaMAX();
+        meuPersonagem.almas = 0;
+        meuPersonagem.defesa = 0;
     }
     
 }

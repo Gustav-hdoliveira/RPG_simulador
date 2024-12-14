@@ -13,15 +13,15 @@ public class Area {
     String nome;
     String descricao;
     Boolean bau;
-    Inimigo[] inimigos;
+    Inimigo inimigos;
     Area Prox_area;
     
-    public Area(String nome_area, String descricao_area,  Boolean bau_na_area, Inimigo[] inimigos_area, Area Proxima_area){
+    public Area(String nome_area, String descricao_area,  Boolean bau_na_area, Inimigo inimigos_area){
         nome = nome_area;
         descricao = descricao_area;
         bau = bau_na_area;
         inimigos = inimigos_area;
-        Prox_area = Proxima_area;
+        Prox_area = null;
     }
     
     public void opcoes_area(Scanner scanner, Dados dadosUtil, Bolsa bolsa){
@@ -30,6 +30,13 @@ public class Area {
         System.out.println("Deseja fazer o que?");
         if(bau == true){
             System.out.println("OP 1: Ir para proxima area, OP 2: Checar bau proximo");
+            System.out.println("Qual opcao deseja? ");
+            String resposta = scanner.nextLine();
+            if(resposta == "1"){
+                Prox_area.opcoes_area(scanner, dadosUtil, bolsa);
+            } else {
+                Checar_bau(scanner, dadosUtil, bolsa);
+            }
         } else {
             System.out.println("Indo para proxima area");
             scanner.nextLine();
@@ -60,6 +67,7 @@ public class Area {
             System.out.println("Você achou o item: " + dente_dourado);
             //Onde os itens deveria ser adicionados a bolsa
         }
+        opcoes_area(scanner, dadosUtil, bolsa);
     }
     public String getNome(){
         return nome;
@@ -73,7 +81,7 @@ public class Area {
         return bau;
     }
     
-    public Inimigo[] getInimigos(){
+    public Inimigo getInimigos(){
         return inimigos;
     }
 }

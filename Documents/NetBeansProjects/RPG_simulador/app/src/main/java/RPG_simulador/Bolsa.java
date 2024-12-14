@@ -9,9 +9,8 @@ package RPG_simulador;
  * @author PC GAMER
  */
 public class Bolsa {
-    Arma[] armas;
-    Item[] conteudo;
-    public Bolsa(Item[] conteudo_da_bolsa){
-        conteudo = conteudo_da_bolsa;
-    }
+    //Item[] conteudo;
+    //public Bolsa(Item[] conteudo_da_bolsa){
+        //conteudo = conteudo_da_bolsa;
+    //}
 }

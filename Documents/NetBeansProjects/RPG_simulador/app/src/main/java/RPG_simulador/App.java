@@ -17,10 +17,19 @@ public class App {
 
     public static void main(String[] args) {
         Dados dadosUtil = new Dados();
+        Item pedra_de_cura = new Item("pedra de cura", "pedra simples que solta uma fraca magia de cura ao ser quebrada");
+        Bolsa bolsaPer = new Bolsa();
         Scanner enter = new Scanner(System.in);
-        Personagem character = new Personagem("Null", 0, 0, 0.1, 0.1,0,0.1,0,0,0,0,0,0,0.1,0,0, "null", "null");
+        Personagem character = new Personagem("Null", 0, 0, 0.1,0.1,0,0,0,0,0,0,0.1,0,0, "null", "null");
         Persona_criacao PerCri = new Persona_criacao();
-        PerCri.Persona_criacao_menu(character);
+        Inimigo exqueleto = new Inimigo("", "", 2, 2, 1, "", 2, 2);
+        Area cemiterio_abandonado_portao;
+        Area cemiterio_abandonado = new Area("Cemitério esquecido", "O lugar onde os esquecidos ja foram abandonados", true, exqueleto);
+        cemiterio_abandonado_portao = new Area("Portao cemiterio esquecido", "Portao do cemiterio", true, exqueleto);
+        cemiterio_abandonado.Prox_area = cemiterio_abandonado_portao;
+        cemiterio_abandonado_portao.Prox_area = cemiterio_abandonado;
         
+        PerCri.Persona_criacao_menu(character);
+        cemiterio_abandonado.opcoes_area(enter, dadosUtil, bolsaPer);
     }
 }

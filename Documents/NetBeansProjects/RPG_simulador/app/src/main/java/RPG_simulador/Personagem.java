@@ -15,8 +15,6 @@ public class Personagem {
     double vidaAtual;
     int almas;
     double defesa;
-    double cargaMAXkg;
-    double cargaAtual;
     int PTvigor;
     int PTvitalidade;
     int PTsintonização;
@@ -27,17 +25,14 @@ public class Personagem {
     int PTfe;
     String equipMdireita;
     String equipMesquerda;
-    Area[] areaAtual;
     
-    public Personagem(String nome,int level,int vidaMaxima,double vidaAtual, double defesa_Per, int almasatuais, double cargaMaxima, double carga_atual, int vigor,int vitalidade,int sintonização,int forca,int destreza,double adaptabilidade,int inteligencia, int fé,String equipMdeireita,String equipMesquerda){
+    public Personagem(String nome,int level,int vidaMaxima,double vidaAtual, double defesa_Per, int almasatuais, int vigor,int vitalidade,int sintonização,int forca,int destreza,double adaptabilidade,int inteligencia, int fé,String equipMdeireita,String equipMesquerda){
         this.nome = nome;
         this.level = level;
         vidaMAX = vidaMaxima;
         this.vidaAtual = vidaAtual;
         almas = almasatuais;
         defesa = defesa_Per;
-        cargaMAXkg = cargaMaxima;
-        cargaAtual = carga_atual;
         PTvigor = vigor;
         PTvitalidade = vitalidade;
         PTsintonização = sintonização; // quantos feitiços podem ser portados ao msm tempo
@@ -121,14 +116,6 @@ public class Personagem {
         return defesa;
     }
 
-    public double getCargaMAXkg() {
-        return cargaMAXkg;
-    }
-    
-    public double getCargaAtual(){
-        return cargaAtual;
-    }
-
     public int getPTvigor() {
         return PTvigor;
     }
@@ -167,9 +154,5 @@ public class Personagem {
 
     public String getEquipMesquerda() {
         return equipMesquerda;
-    }
-    
-    public Area[] getAreaAtual(){
-        return areaAtual;
     }
 }
