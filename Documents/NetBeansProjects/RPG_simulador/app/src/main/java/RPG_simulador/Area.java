@@ -32,7 +32,7 @@ public class Area {
             System.out.println("OP 1: Ir para proxima area, OP 2: Checar bau proximo");
             System.out.println("Qual opcao deseja? ");
             String resposta = scanner.nextLine();
-            if(resposta == "1"){
+            if("1".equals(resposta)){
                 Prox_area.opcoes_area(scanner, dadosUtil, bolsa);
             } else {
                 Checar_bau(scanner, dadosUtil, bolsa);
