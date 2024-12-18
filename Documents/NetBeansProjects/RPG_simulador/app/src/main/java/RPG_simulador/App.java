@@ -25,7 +25,7 @@ public class App {
         Inimigo exqueleto = new Inimigo("", "", 2, 2, 1, "", 2, 2);
         Area cemiterio_abandonado_portao;
         Area cemiterio_abandonado = new Area("Cemitério esquecido", "O lugar onde os esquecidos ja foram abandonados", true, exqueleto);
-        cemiterio_abandonado_portao = new Area("Portao cemiterio esquecido", "Portao do cemiterio", true, exqueleto);
+        cemiterio_abandonado_portao = new Area("Portao do cemiterio esquecido", "Portao do cemiterio", true, exqueleto);
         cemiterio_abandonado.Prox_area = cemiterio_abandonado_portao;
         cemiterio_abandonado_portao.Prox_area = cemiterio_abandonado;
         
